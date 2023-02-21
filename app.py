@@ -2,7 +2,7 @@ from flask import Flask
 app=Flask(__name__)
 @app.route("/")
 def welcome():
-    return "hii welcome to isdl ibm labs"
+    return "hii welcome to ibm isdl labs"
 # if __name__=="__main__":
 #     app.run(debug=True)
 #added new comment
