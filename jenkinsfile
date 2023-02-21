@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') { 
+            steps {
+                python appy.py
+                echo "build"
+            }
+        }
+        stage('Test') { 
+            steps {
+                echo "test"
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                echo "deploy" 
+            }
+        }
+    }
+}
