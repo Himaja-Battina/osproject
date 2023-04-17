@@ -16,4 +16,4 @@ spec:
       - name: my-app
         image: docker.io/battinahimaja/newimage:0.0.1.RELEASE
         ports:
-        - containerPort: 8080
+        - containerPort: 8000
