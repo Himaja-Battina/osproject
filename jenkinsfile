@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'my-z-systems-agent'
+        any
     }
     stages {
         stage('Deploy Application') {
