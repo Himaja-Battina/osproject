@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: my-app
@@ -13,7 +13,13 @@ spec:
         app: my-app
     spec:
       containers:
-      - name: my-app-container
-        image: image-registry.openshift-image-registry.svc:5000/firstproject/osproject-1-git@sha256:de1827f9f6556fedb318d9bf9ad4966ee19469d9eefd8aa2f1ed4f218acae447
+      - name: my-app
+        image: docker.io/battinahimaja/newimage:0.0.1.RELEASE
         ports:
         - containerPort: 8080
+        env:
+        - name: DOCKER_USERNAME
+          value: Himaja.Battina@ibm.com
+        - name: DOCKER_PASSWORD
+          value: @HimajaBattina627281
+
