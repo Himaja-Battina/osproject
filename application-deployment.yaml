@@ -17,9 +17,3 @@ spec:
         image: docker.io/battinahimaja/newimage:0.0.1.RELEASE
         ports:
         - containerPort: 8080
-        env:
-        - name: DOCKER_USERNAME
-          value: Himaja.Battina@ibm.com
-        - name: DOCKER_PASSWORD
-          value: HimajaBattina627281
-
