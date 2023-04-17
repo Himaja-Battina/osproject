@@ -6,7 +6,7 @@ pipeline {
                 // Install 'oc' command using 'openshift-client-plugin'
                
                 // Configure OCP credentials
-                withCredentials([string(credentialsId: 'ocp-auth-token', variable: 'OCP_AUTH_TOKEN'),
+                withCredentials([string(credentialsId: 'cluster-auth-token', variable: 'CLUSTER_AUTH_TOKEN'),
                                   string(credentialsId: 'ocp-server-url', variable: 'OCP_SERVER_URL'),
                                   string(credentialsId: 'ocp-project', variable: 'OCP_PROJECT')]) {
                     // Deploy application to OCP cluster using 'oc' command and deployment YAML file
