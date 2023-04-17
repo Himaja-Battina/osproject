@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: docker.io/s390x/python:latest
+        image: image-registry.openshift-image-registry.svc:5000/firstproject/osproject-1-git@sha256:de1827f9f6556fedb318d9bf9ad4966ee19469d9eefd8aa2f1ed4f218acae447
         ports:
         - containerPort: 8080
