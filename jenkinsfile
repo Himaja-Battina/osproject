@@ -4,7 +4,7 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 // Install 'oc' command using 'openshift-client-plugin'
-                openshiftInstallClient()
+               
                 // Configure OCP credentials
                 withCredentials([string(credentialsId: 'ocp-auth-token', variable: 'OCP_AUTH_TOKEN'),
                                   string(credentialsId: 'ocp-server-url', variable: 'OCP_SERVER_URL'),
