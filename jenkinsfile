@@ -1,21 +1,21 @@
 pipeline {
-    agent any
+    agent {
+        label 'my-z-systems-agent'
+    }
     stages {
-        stage('Build') { 
+        stage('Deploy Application') {
             steps {
-                sh "python app.py"
-                echo "build"
-            }
-        }
-        stage('Test') { 
-            steps {
-                echo "test"
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                echo "deploy" 
+                // Install 'oc' command using 'openshift-client-plugin'
+                openshiftInstallClient()
+                // Configure OCP credentials
+                withCredentials([string(credentialsId: 'ocp-auth-token', variable: 'OCP_AUTH_TOKEN'),
+                                  string(credentialsId: 'ocp-server-url', variable: 'OCP_SERVER_URL'),
+                                  string(credentialsId: 'ocp-project', variable: 'OCP_PROJECT')]) {
+                    // Deploy application to OCP cluster using 'oc' command and deployment YAML file
+                    sh "oc --server=${OCP_SERVER_URL} --token=${OCP_AUTH_TOKEN} project ${OCP_PROJECT} && oc --server=${OCP_SERVER_URL} --token=${OCP_AUTH_TOKEN} apply -f application-deployment.yaml"
+                }
             }
         }
     }
 }
+
