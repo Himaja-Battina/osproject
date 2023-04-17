@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: docker.io/battinahimaja/newimage:0.0.1.RELEASE
+        image: docker.io/battinahimaja/myimage:0.0.1.RELEASE
         ports:
         - containerPort: 8080
