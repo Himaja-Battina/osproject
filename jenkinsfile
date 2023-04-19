@@ -9,8 +9,10 @@ pipeline {
                 withCredentials([string(credentialsId: 'cluster-auth-token', variable: 'CLUSTER_AUTH_TOKEN'),
                                   string(credentialsId: 'ocp-server-url', variable: 'OCP_SERVER_URL')]) {
                     // Deploy application to OCP cluster using 'oc' command and deployment YAML file
+                    script{
                      'sh oc --server=$OCP_SERVER_URL --token=$CLUSTER_AUTH_TOKEN new-project newprojectp --insecure-skip-tls-verify'
                    'sh oc --server=$OCP_SERVER_URL --token=$CLUSTER_AUTH_TOKEN project newprojectp --insecure-skip-tls-verify && oc --server=$OCP_SERVER_URL --token=$CLUSTER_AUTH_TOKEN apply -f application-deployment.yaml'
+                }
                 }
             }
         }
